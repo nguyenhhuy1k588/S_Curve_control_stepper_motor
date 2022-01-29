@@ -68,14 +68,14 @@ void stepper_motor_init(motors_t motors);
 
 void stepper_motor_deinit(motors_t motors);
 
-void stepper_motor_set_param(motors_t motors, uint16_t set_fre, uint16_t max_acc_decel, uint16_t one_phase_time);
+void stepper_motor_set_param(motors_t motors, uint16_t set_fre);
 
-void excute_phase_0(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
-void excute_phase_1(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
-void excute_phase_2(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
-void excute_phase_3(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
-void excute_phase_4(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
-void excute_phase_5(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
-void excute_phase_6(phase_t phase, float acc_decel_defferient, uint16_t one_phase_time, uint16_t cnt_time );
+void excute_phase_0(motors_t motors);
+void excute_phase_1(motors_t motors);
+void excute_phase_2(motors_t motors);
+void excute_phase_3(motors_t motors);
+void excute_phase_4(motors_t motors);
+void excute_phase_5(motors_t motors);
+void excute_phase_6(motors_t motors);
 
 #endif /* STEPPER_CONTROL_H_ */

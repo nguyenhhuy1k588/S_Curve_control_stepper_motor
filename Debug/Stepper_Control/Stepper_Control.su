@@ -1,4 +1,12 @@
-Stepper_Control.c:13:6:stepper_motor_init	16	static
-Stepper_Control.c:34:6:stepper_motor_deinit	16	static
-Stepper_Control.c:49:6:stepper_motor_set_param	16	static
-Stepper_Control.c:53:10:get_one_phase_time	24	static
+Stepper_Control.c:32:6:stepper_motor_init	16	static
+Stepper_Control.c:53:6:stepper_motor_deinit	16	static
+Stepper_Control.c:68:6:stepper_motor_set_param	24	static
+Stepper_Control.c:75:13:run_motor	16	static
+Stepper_Control.c:97:6:excute_phase_0	24	static
+Stepper_Control.c:116:6:excute_phase_1	16	static
+Stepper_Control.c:135:6:excute_phase_2	24	static
+Stepper_Control.c:152:6:excute_phase_3	16	static
+Stepper_Control.c:169:6:excute_phase_4	32	static
+Stepper_Control.c:186:6:excute_phase_5	16	static
+Stepper_Control.c:203:6:excute_phase_6	24	static
+Stepper_Control.c:221:6:HAL_TIM_PeriodElapsedCallback	16	static
