@@ -68,7 +68,7 @@ void stepper_motor_deinit(motors_t motors)
 void stepper_motor_set_param(motors_t motors, uint16_t set_fre)
 {
 	param[motors].set_fre = set_fre;
-	param[motors].one_phase_time = (float)sqrtf(set_fre/MAX_ACC_DE_DIFFERIENT);
+	param[motors].one_phase_time = (float)sqrtf(set_fre/(2*MAX_ACC_DE_DIFFERIENT));
 	param[motors].max_acc_decel = param[motors].one_phase_time * MAX_ACC_DE_DIFFERIENT;
 }
 
@@ -102,7 +102,7 @@ void excute_phase_0(motors_t motors)
 	{
 		//phase = INCREASING_ACCELERATION;
 		param[motors].current_acc_decel = MAX_ACC_DE_DIFFERIENT * param[motors].cnt_time;
-		param[motors].current_fre =(uint16_t) 0.5 * MAX_ACC_DE_DIFFERIENT * pow(param[motors].cnt_time,2);
+		param[motors].current_fre = 0.5 * MAX_ACC_DE_DIFFERIENT ;
 		run_motor(motors);
 	}
 	else
@@ -222,22 +222,28 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == MOTOR_X_TIMER.Instance)
     {
+
+    }
+
+    if (htim->Instance == MOTOR_Y_TIMER.Instance)
+    {
+    	//motors = MOTOR_Y;
+    	//param[MOTOR_Y].cnt_time++;
+    	//excute_phase[phase[MOTOR_Y]](MOTOR_Y);
+    }
+
+    if (htim->Instance == MOTOR_Z_TIMER.Instance)
+    {
+    	//motors = MOTOR_Z;
+    	//param[MOTOR_Z].cnt_time++;
+    	//excute_phase[phase[MOTOR_Z]](MOTOR_Z);
+    }
+
+    if (htim->Instance == htim2.Instance)
+    {
     	motors = MOTOR_X;
     	param[MOTOR_X].cnt_time++;
     	excute_phase[phase[MOTOR_X]](MOTOR_X);
     }
 
-    if (htim->Instance == MOTOR_Y_TIMER.Instance)
-    {
-    	motors = MOTOR_Y;
-    	param[MOTOR_Y].cnt_time++;
-    	excute_phase[phase[MOTOR_Y]](MOTOR_Y);
-    }
-
-    if (htim->Instance == MOTOR_Z_TIMER.Instance)
-    {
-    	motors = MOTOR_Z;
-    	param[MOTOR_Z].cnt_time++;
-    	excute_phase[phase[MOTOR_Z]](MOTOR_Z);
-    }
 }

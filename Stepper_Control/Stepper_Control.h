@@ -52,7 +52,7 @@ typedef struct
 	float acc_decel_defferient;
 	volatile uint16_t cnt_time;
 	volatile uint32_t cnt_round;
-	uint16_t current_fre;
+	float current_fre;
 	float current_acc_decel;
 } param_t;
 
